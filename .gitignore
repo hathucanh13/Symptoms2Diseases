@@ -1,0 +1,10 @@
+node_modules
+package-lock.json
+dist
+.vscode
+.DS_Store
+.idea
+package.json
+.env
+s2d-v1.pkl
+archive
