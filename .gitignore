@@ -8,3 +8,7 @@ package.json
 .env
 s2d-v1.pkl
 archive
+config.py
+symptom_index.faiss
+symptom_map.pkl
+symptom_vectors.npy

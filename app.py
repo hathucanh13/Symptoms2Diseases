@@ -57,8 +57,8 @@ root.title("Symptoms to Disease Prediction")
 root.configure(bg="lightblue")
 root.geometry("480x480")
 
-my_label = Label(root, text ="Hello! Type your symptoms below! :) ", bg="lightblue", font=("Helvetica"), fg="black") 
-my_label.pack(pady=20)
+helloLb = Label(root, text ="Hello! Type your symptoms below! :) ", bg="lightblue", font=("Helvetica"), fg="black") 
+helloLb.pack(pady=20)
 
 # Add a frame at the bottom
 bottom_frame = Frame(root, bg="lightblue")
@@ -66,7 +66,15 @@ bottom_frame.pack(side="bottom", fill="x", pady=20)
 
 input_field = Entry(bottom_frame, width=47, bg ="white", font=("Helvetica"), fg="black")
 input_field.pack(side="left", padx=5)
+selected_vars = []
+selected_symptoms = []
+def postOk():
+    
 def onClick():
+    global selected_vars, selected_symptoms
+    selected_vars = []
+    selected_symptoms = []
+    checkbuttons = []
     # Get the input from the input field
     user_input = input_field.get()
     # Print the input to the console
@@ -74,9 +82,29 @@ def onClick():
     # Call the function to find similar symptoms
     results = find_similar_symptoms(user_input)
     # Print the results
-    print("Matching symptoms:")
+    reaffirm_label = Label(root, text = "Great! I understand it as:", bg="lightblue")
+    reaffirm_label.pack()
     for symptom, score in results:
-        print(f"- {symptom} (distance: {score:.4f})")
+        var = IntVar()
+        chk = Checkbutton(root, text=f"{symptom} (distance: {score:.4f})", bg="lightblue", font=("Helvetica"), fg="black", variable=var)
+        chk.pack()
+        selected_vars.append(var)
+        selected_symptoms.append(symptom)
+        checkbuttons.append(chk)
+    reaffirm_label2 = Label(root, text = "Tick if the symptoms above apply to you", bg="lightblue")
+    reaffirm_label2.pack()
+    def onOK():
+        checked = [symptom for var, symptom in zip(selected_vars, selected_symptoms) if var.get() == 1]
+        for chk in checkbuttons:
+            chk.destroy()
+        reaffirm_label.destroy()
+        reaffirm_label2.destroy()
+        input_field.delete(0, END)
+        okBtn.destroy()
+        print("Checked symptoms:", checked)
+        postOk()
+    okBtn = Button(root, text ="OK", bg="darkblue", font=("Helvetica"), fg="white", command=onOK)
+    okBtn.pack(padx=5)    
 
 send_button = Button(bottom_frame, text ="➤", bg="darkblue", font=("Helvetica"), fg="white", command=onClick)
 send_button.pack(side="left", padx=5)
