@@ -4,7 +4,7 @@ import joblib
 
 # Load the model once
 embedModel = SentenceTransformer(EMBED_MODEL)                            
-s2d_model = joblib.load("s2d-v1.pkl")
+s2d_model = joblib.load("rf-v2.pkl")
 def get_embedding(text):
     return embedModel.encode(text)
 

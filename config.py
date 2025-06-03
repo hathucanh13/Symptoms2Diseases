@@ -1,8 +1,0 @@
-DATASET = "archive/dataset_Diseases_and_Symptoms.csv"
-SYMPTOM_FILE = "archive/all_symptoms.csv"
-VEC_FILE = "symptom_vectors.npy"
-INDEX_FILE = "symptom_index.faiss"
-MAP_FILE = "symptom_map.pkl"
-EMBED_MODEL = "pritamdeka/BioBERT-mnli-snli-scinli-scitail-mednli-stsb"
-RFC_MODEL = "archive/s2d-v1.pkl"
-BG_IMAGE_PATH = "archive/bg.png"

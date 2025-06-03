@@ -6,8 +6,7 @@ dist
 .idea
 package.json
 .env
-s2d-v1.pkl
-rf-v2.pkl
+clf-v0.pkl
 archive
 symptom_index.faiss
 symptom_map.pkl
