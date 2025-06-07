@@ -3,7 +3,7 @@ import pickle
 import numpy as np
 import faiss
 from config import VEC_FILE, INDEX_FILE, MAP_FILE
-from model_utils import get_embedding
+from utils.model_utils import get_embedding
 
 def build_or_load_index(symptoms):
     if all(os.path.exists(f) for f in [VEC_FILE, INDEX_FILE, MAP_FILE]):

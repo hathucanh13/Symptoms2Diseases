@@ -1,7 +1,7 @@
 from tkinter import *
-from faiss_utils import find_similar
-from data_loader import load_symptoms_from_dataset
-from model_utils import get_s2d_model
+from utils.faiss_utils import find_similar
+from utils.data_loader import load_symptoms_from_dataset
+from utils.model_utils import get_s2d_model
 from config import BG_IMAGE_PATH 
 
 def launch_gui(symptoms, index, symptom_map):

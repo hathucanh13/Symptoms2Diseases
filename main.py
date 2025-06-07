@@ -1,6 +1,6 @@
-from data_loader import load_symptoms_from_dataset
-from faiss_utils import build_or_load_index
-from gui import launch_gui
+from utils.data_loader import load_symptoms_from_dataset
+from utils.faiss_utils import build_or_load_index
+from gui.gui import launch_gui
 
 def main():
     symptoms = load_symptoms_from_dataset()
