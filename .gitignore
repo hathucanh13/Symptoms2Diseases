@@ -14,3 +14,4 @@ symptom_vectors.npy
 __pycache__
 .ipynb_checkpoints
 models
+app.py
