@@ -11,3 +11,6 @@ archive
 symptom_index.faiss
 symptom_map.pkl
 symptom_vectors.npy
+__pycache__
+.ipynb_checkpoints
+models

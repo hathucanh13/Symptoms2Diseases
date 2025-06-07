@@ -1,10 +1,10 @@
 from sentence_transformers import SentenceTransformer
-from config import EMBED_MODEL
+from config import EMBED_MODEL, RFC_MODEL
 import joblib
 
 # Load the model once
 embedModel = SentenceTransformer(EMBED_MODEL)                            
-s2d_model = joblib.load("rf-v2.pkl")
+s2d_model = joblib.load(RFC_MODEL)
 def get_embedding(text):
     return embedModel.encode(text)
 

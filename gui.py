@@ -43,12 +43,16 @@ def launch_gui(symptoms, index, symptom_map):
         top_indices = probs.argsort()[-3:][::-1]
         top_diagnoses = [(rf.classes_[i], probs[i]) for i in top_indices]
         print("Top diagnoses:", top_diagnoses)
+        print ("User symptoms:", user_symptoms)
         Label(root, text=f"Selected symptoms: {', '.join(user_symptoms)}", bg="lightblue").pack()
 
         Label(root, text="Predicted diagnoses:", bg="lightblue").pack()
         for diagnosis, prob in top_diagnoses:
             Label(root, text=f"{diagnosis} (probability: {prob * 100:.4f})", bg="lightblue").pack()
+
         Button(root, text="Start Over", bg="darkblue", font=("Helvetica"), fg="white", command=reset).pack(pady=10)
+        Label(root, text="DISCLAIMER: This is not a diagnosis. Please visit a medical facility for a full check-up", bg="lightblue", font=("Helvetica")).pack()        
+
     def analyze():
         user_input = input_field.get()
         input_field.delete(0, END)
