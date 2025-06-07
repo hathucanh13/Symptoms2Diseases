@@ -11,5 +11,5 @@ symptom_map.pkl
 symptom_vectors.npy
 __pycache__/
 .ipynb_checkpoints
-*.pkl
+models/clf-imbalanced-v2.pkl
 app.py
